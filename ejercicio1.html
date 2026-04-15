@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio 1</title>
 </head>
 <body>
     <section>
@@ -11,7 +11,19 @@
     </section>
 
     <script>
-        
+        const reloj = document.getElementById("reloj")
+
+        function actualizarHora() {
+            const ahora = new Date()
+            reloj.innerHTML = ahora.toLocaleDateString('es-ES', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            })
+        }
+
+        actualizarHora()
+        setInterval(actualizarHora, 1000)
     </script>
 </body>
 </html>

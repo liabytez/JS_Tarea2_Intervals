@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <p id="display">1</p>
+    <p id="resultado"></p>
+
+    <button onclick="jugar()">Jugar</button>
+    <button onclick="parar()">Parar</button>
+    <button onclick="reiniciar()">Jugar de nuevo</button>
+
+    <script>
+        let numeroActual = 1
+        let intervalo = null
+
+        const display = document.getElementById("display")
+        const resultado = document.getElementById("resultado")
+
+
+        function jugar() {
+            intervalo = setInterval(function () {
+                numeroActual = Math.floor(Math.random() * 10) + 1
+                display.innerHTML = numeroActual
+            }, 200)
+        }
+
+        function parar() {
+            clearInterval(intervalo)
+            if (numeroActual === 7) {
+                resultado.innerHTML = "¡Ganaste!"
+            } else {
+                resultado.innerHTML = "Era el " + numeroActual + ", inténtalo de nuevo."
+            }
+        }
+
+        function reiniciar() {
+            clearInterval(intervalo)
+            numeroActual = 1
+            resultado.innerHTML = ""
+            display.innerHTML = numeroActual
+        }
+    </script>
+</body>
+
+</html>

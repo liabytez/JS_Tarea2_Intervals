@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <p id="parrafo">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+    <button onclick="iniciar()">Iniciar</button>
+    <button onclick="detener()">Detener</button>
+
+    <script>
+        let visible = true
+        let intervalo = null
+
+        const parrafo = document.getElementById("parrafo")
+
+        function iniciar() {
+            intervalo = setInterval(function () {
+                visible = !visible
+                if (visible) {
+                    parrafo.style.visibility = "visible"
+                } else {
+                    parrafo.style.visibility = "hidden"
+                }
+            }, 500)
+        }
+
+        function detener() {
+            clearInterval(intervalo)
+            parrafo.style.visibility = "visible"
+        }
+    </script>
+</body>
+
+</html>
